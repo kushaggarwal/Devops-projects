@@ -1,0 +1,16 @@
+---
+- name: Installtion and clone of git repo
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install git on server
+      yum:
+        name: git
+        state: present
+    - name: Clone the repo
+      git:
+        repo: https://github.com/kushaggarwal/Devops-projects
+        dest: /home/ec2-user/repo
+        clone: yes
+        update: yes

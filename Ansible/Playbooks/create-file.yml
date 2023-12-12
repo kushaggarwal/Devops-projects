@@ -1,0 +1,9 @@
+---
+- name: Create file
+  hosts: all
+  tasks:
+    - name: Creation of file
+      file:
+        path: "/home/ec2-user/sample.txt"
+        state: touch
+      become: yes
