@@ -1,3 +1,5 @@
+## Steps to apply Ansible project
+
 1. Create the ssh key file in .ssh location for ansible to remotely access the hosts
 
    ```
