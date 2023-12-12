@@ -35,5 +35,5 @@
 
 #### Helpful links
 
-Anisble modules - https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
-Ansible official documentation - https://docs.ansible.com/
+- Anisble modules - https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
+- Ansible official documentation - https://docs.ansible.com/
