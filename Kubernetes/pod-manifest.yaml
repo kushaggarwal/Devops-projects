@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-gaming
+  namespace: gaming
+spec:
+  containers:
+    - name: busybox
+      image: nginx
+      ports:
+        - containerPort: 8080
+  restartPolicy: Always

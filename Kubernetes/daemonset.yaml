@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: application
+  labels:
+    app: test
+spec:
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+        - image: busybox
+          command:
+            - sleep
+            - "4000"
+          imagePullPolicy: IfNotPresent
+          name: busybox
