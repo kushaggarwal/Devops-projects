@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM --platform=linux/amd64 node:18-alpine
 RUN npm install -g nodemon
 WORKDIR /app
 COPY package.json .
