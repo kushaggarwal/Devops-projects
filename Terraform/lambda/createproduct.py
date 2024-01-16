@@ -1,48 +1,47 @@
 import logging
 import boto3
-import json
+import json 
 import os
 
 
 session = boto3.Session(region_name=os.environ['REGION'])
 dynamodb_client = session.client('dynamodb')
 
-
 def lambda_handler(event, context):
     try:
-        print("event->" + str(event))
+        print("event ->" + str(event))
         payload = json.loads(event['body'])
         dynamodb_response = dynamodb_client.put_item(
             TableName = os.environ["PRODUCT_TABLE"],
-            Item = {
-                "product_id" : {
+            Item={
+                "product_id": {
                     "S": payload["productId"]
                 },
-                "category" : {
+                "category": {
                     "S": payload["category"]
                 },
-                "product_rating" : {
-                    "S": payload["productRating"]
+                "product_rating": {
+                    "N": str(payload["productRating"])
                 },
-                "product_name" : {
+                "product_name": {
                     "S": payload["productName"]
                 },
-                "product_price" : {
-                    "S": payload["productPrice"]
+                "product_price":{
+                    "S": str(payload["productPrice"])
                 },
-                "product_description" : {
+                "product_description": {
                     "S": payload["productDescription"]
-                },
+                }
             }
         )
         print(dynamodb_response)
         return {
-            'status_code' : 201,
-            'body' : '{"status":"Product Created"}'
+            'statusCode': 201,
+            'body': '{"status":"Product created}'
         }
     except Exception as e:
         logging.error(e)
-        return {
-            'status_code' : 500,
-            'body' : '{"status":"Server Error"}'
+        return{
+            'statusCode': 500,
+            'body':'{"status":"Server error"}'
         }
